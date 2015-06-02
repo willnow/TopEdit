@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Csr.ShareLib.LogManageLib</name>
+    </assembly>
+    <members>
+        <member name="T:CSR.ShareLib.LogManager">
+            <summary>
+            封装日志操作
+            </summary>
+        </member>
+        <member name="F:CSR.ShareLib.LogManager.InfoLog">
+            <summary>
+            封装日志操作，唯一实例
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogAlarmChn(CSR.ShareLib.LogAlarmContent)">
+            <summary>
+            告警日志:中文.主要输出系统运行过程中，系统的分级告警以及操作员的操作情况
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogAlarmChn(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            告警日志:中文.主要输出系统运行过程中，系统的分级告警以及操作员的操作情况
+            </summary>
+            <param name="level">告警等级</param>
+            <param name="maintype">主类型</param>
+            <param name="subtype">子类型</param>
+            <param name="confirmed">是否已确认</param>
+            <param name="content">告警内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogAlarmEng(CSR.ShareLib.LogAlarmContent)">
+            <summary>
+            告警日志:英文
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogAlarmEng(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            告警日志:英文
+            </summary>
+            <param name="level">告警等级</param>
+            <param name="maintype">主类型</param>
+            <param name="subtype">子类型</param>
+            <param name="confirmed">是否已确认</param>
+            <param name="content">告警内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunication(CSR.ShareLib.LogCommunicationContent)">
+            <summary>
+            通信日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunication(CSR.ShareLib.EmLogType,System.String,System.String,System.String)">
+            <summary>
+            通信日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunication(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            通信日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="send">发送方</param>
+            <param name="receive">接收方</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunicationError(System.String,System.String,System.String)">
+            <summary>
+            通信日志，日志类型为错误
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunicationInfo(System.String,System.String,System.String)">
+            <summary>
+            通信日志，日志类型为普通信息
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogCommunicationWarning(System.String,System.String,System.String)">
+            <summary>
+            通信日志，日志类型为警告
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogConfiguration(CSR.ShareLib.LogConfigurationContent)">
+            <summary>
+            配置日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogConfiguration(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            配置日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="fileName">配置文件名</param>
+            <param name="item">配置项</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogConfigurationError(System.String,System.String,System.String)">
+            <summary>
+            配置日志，日志类型为错误
+            </summary>
+            <param name="fileName">配置文件名</param>
+            <param name="item">配置项</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogConfigurationInfo(System.String,System.String,System.String)">
+            <summary>
+            配置日志，日志类型为普通信息
+            </summary>
+            <param name="fileName">配置文件名</param>
+            <param name="item">配置项</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogConfigurationWarning(System.String,System.String,System.String)">
+            <summary>
+            配置日志，日志类型为警告
+            </summary>
+            <param name="fileName">配置文件名</param>
+            <param name="item">配置项</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogProc(CSR.ShareLib.LogProcContent)">
+            <summary>
+            调试日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogProc(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String)">
+            <summary>
+            调试日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="subtype">子类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogProcError(System.String,System.String,System.String)">
+            <summary>
+            调试日志，日志类型为错误
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogProcInfo(System.String,System.String,System.String)">
+            <summary>
+            调试日志，日志类型为普通信息
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogProcWarning(System.String,System.String,System.String)">
+            <summary>
+            调试日志，日志类型为警告
+            </summary>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogPerformance(CSR.ShareLib.LogPerformanceContent)">
+            <summary>
+            性能日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogPerformance(CSR.ShareLib.EmLogType,System.String,System.Double,System.String)">
+            <summary>
+            性能日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="taskName">任务名称</param>
+            <param name="execTime">执行时间</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogPerformanceError(System.String,System.Double,System.String)">
+            <summary>
+            性能日志，日志类型为错误
+            </summary>
+            <param name="taskName">任务名称</param>
+            <param name="execTime">执行时间</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogPerformanceInfo(System.String,System.Double,System.String)">
+            <summary>
+            性能日志，日志类型为普通信息
+            </summary>
+            <param name="taskName">任务名称</param>
+            <param name="execTime">执行时间</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogPerformanceWarning(System.String,System.Double,System.String)">
+            <summary>
+            性能日志，日志类型为警告
+            </summary>
+            <param name="taskName">任务名称</param>
+            <param name="execTime">执行时间</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogError(System.String,System.Object[])">
+            <summary>
+            调试日志，日志类型为错误
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:CSR.ShareLib.LogManager.LogInfo(System.String,System.Object[])">
+            <summary>
+            调试日志，日志类型为普通信息
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:CSR.ShareLib.LogAlarmContent">
+            <summary>
+            主要输出系统运行过程中，系统的分级告警以及操作员的操作情况
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogAlarmContent.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            主要输出系统运行过程中，系统的分级告警以及操作员的操作情况
+            </summary>
+            <param name="level">等级</param>
+            <param name="maintype">主类型</param>
+            <param name="subtype">子类型</param>
+            <param name="confirmed">确认</param>
+            <param name="content">内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogAlarmContent.ToString">
+            <summary>
+            返回本条日志的字符串形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSR.ShareLib.LogPerformanceContent">
+            <summary>
+            性能日志
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogPerformanceContent.#ctor(CSR.ShareLib.EmLogType,System.String,System.Double,System.String)">
+            <summary>
+            性能日志
+            </summary>
+            <param name="type">类型</param>
+            <param name="taskName">关键函数和重要任务名</param>
+            <param name="execTime">执行时间</param>
+            <param name="content">内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogPerformanceContent.ToString">
+            <summary>
+            返回本条日志的字符串形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSR.ShareLib.LogConfigurationContent">
+            <summary>
+            主要输出系统运行过程中，配置模块读、写配置文件的信息，以及在读写过程中出现的错误信息（如指定项不存在等）。
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogConfigurationContent.#ctor(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            主要输出系统运行过程中，配置模块读、写配置文件的信息，以及在读写过程中出现的错误信息（如指定项不存在等）。
+            </summary>
+            <param name="type">类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">函数名</param>
+            <param name="fileName">配置文件名</param>
+            <param name="item">项</param>
+            <param name="content">内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogConfigurationContent.ToString">
+            <summary>
+            返回本条日志的字符串形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSR.ShareLib.EmLogType">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="F:CSR.ShareLib.EmLogType.Info">
+            <summary>
+            该日志为普通信息
+            </summary>
+        </member>
+        <member name="F:CSR.ShareLib.EmLogType.Error">
+            <summary>
+            该日志为错误信息
+            </summary>
+        </member>
+        <member name="F:CSR.ShareLib.EmLogType.Warning">
+            <summary>
+            警告信息，虽然当前不会引起错误，但是将来可能出错
+            </summary>
+        </member>
+        <member name="T:CSR.ShareLib.LogCommunicationContent">
+            <summary>
+            主要输出在系统运行过程中，通信模块收到消息和发送消息时的信息，以及在通信过程中出现的错误信息
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogCommunicationContent.#ctor(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            主要输出在系统运行过程中，通信模块收到消息和发送消息时的信息，以及在通信过程中出现的错误信息
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">函数名</param>
+            <param name="send">发送方</param>
+            <param name="receive">接收方</param>
+            <param name="content">内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogCommunicationContent.ToString">
+            <summary>
+            返回本条日志的字符串形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSR.ShareLib.LogProcContent">
+            <summary>
+            调试日志
+            </summary>
+        </member>
+        <member name="M:CSR.ShareLib.LogProcContent.#ctor(CSR.ShareLib.EmLogType,System.String,System.String,System.String,System.String)">
+            <summary>
+            调试日志
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="subtype">日志子类型</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="content">日志内容</param>
+        </member>
+        <member name="M:CSR.ShareLib.LogProcContent.ToString">
+            <summary>
+            返回本条日志的字符串形式
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

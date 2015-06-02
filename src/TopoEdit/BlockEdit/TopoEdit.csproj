@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12A1738E-7200-439F-B385-A9F2E71C91C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TopoEdit</RootNamespace>
+    <AssemblyName>TopoEdit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>TopoEdit.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\TopoEdit.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\TopoEdit.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csr.ShareLib.LogManageLib, Version=2.2.0.2, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\Csr.ShareLib.LogManageLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CUIT.GlobalService.ShareLib, Version=2.2.0.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\CUIT.GlobalService.ShareLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=8.0.0.5, Culture=neutral, PublicKeyToken=ff0069e61369d6d6, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interceptor\IDrawPanelInterceptor.cs" />
+    <Compile Include="InputControl\AddPageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputControl\AddPageForm.Designer.cs">
+      <DependentUpon>AddPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDrawPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseDrawPanel.Designer.cs">
+      <DependentUpon>BaseDrawPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlockContainer.cs" />
+    <Compile Include="BlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BlockControl.Designer.cs">
+      <DependentUpon>BlockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlockEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BlockEditControl.Designer.cs">
+      <DependentUpon>BlockEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BookEditControl.Designer.cs">
+      <DependentUpon>BookEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BookPanel.Designer.cs">
+      <DependentUpon>BookPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Command\AddDrawCommand.cs" />
+    <Compile Include="Command\CommandManager.cs" />
+    <Compile Include="Command\ComplexCommand.cs" />
+    <Compile Include="Command\DelDrawCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\MoveDrawCommand.cs" />
+    <Compile Include="Command\NullCommand.cs" />
+    <Compile Include="Command\UpdateDrawCommand.cs" />
+    <Compile Include="Command\UpdateSelectedDrawCommand.cs" />
+    <Compile Include="DBHelper.cs" />
+    <Compile Include="EventHandler\CopyIconEventHandler.cs" />
+    <Compile Include="EventHandler\DelectIconEventHandler.cs" />
+    <Compile Include="EventHandler\DrawIconHandler.cs" />
+    <Compile Include="EventHandler\DrawIconPolygonHandler.cs" />
+    <Compile Include="EventHandler\EditBlockRectPropertyEventHandler.cs" />
+    <Compile Include="EventHandler\EditIconPropertyEventHandler.cs" />
+    <Compile Include="EventHandler\PaintBoundEventHandler.cs" />
+    <Compile Include="EventHandler\PaintGridEventHandler.cs" />
+    <Compile Include="EventHandler\SaveBlockEventHandler.cs" />
+    <Compile Include="EventHandler\SaveBookEventHandler.cs" />
+    <Compile Include="EventHandler\SavePageEventHandler.cs" />
+    <Compile Include="EventHandler\UnDoEventHandler.cs" />
+    <Compile Include="EventHandler\ZoomPanelViewEventHandler.cs" />
+    <Compile Include="EventHandler\ZoomSelectedBlockRectHandler.cs" />
+    <Compile Include="BlockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BlockPanel.Designer.cs">
+      <DependentUpon>BlockPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventHandler\IBlockEventHandler.cs" />
+    <Compile Include="EventHandler\MoveSelectedIconHandler.cs" />
+    <Compile Include="EventHandler\SelectRangeHandler.cs" />
+    <Compile Include="BlockPreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BlockPreviewControl.Designer.cs">
+      <DependentUpon>BlockPreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventHandler\ZoomSelectedPageRectHandler.cs" />
+    <Compile Include="ExpressionCalculator.cs" />
+    <Compile Include="Icon\AnchorControlPoint.cs" />
+    <Compile Include="Icon\AnchorEndPoint.cs" />
+    <Compile Include="Icon\BlockRect.cs" />
+    <Compile Include="Icon\Book.cs" />
+    <Compile Include="Icon\Anchor.cs" />
+    <Compile Include="Icon\PageRect.cs" />
+    <Compile Include="Icon\RangeRect.cs" />
+    <Compile Include="Icon\SelectedPageRect.cs" />
+    <Compile Include="Icon\SelectedPolygon.cs" />
+    <Compile Include="Icon\Symmetry.cs" />
+    <Compile Include="Icon\ZoomableRange.cs" />
+    <Compile Include="IHelpHandle.cs" />
+    <Compile Include="InputControl\AddBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputControl\AddBlockForm.Designer.cs">
+      <DependentUpon>AddBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interceptor\ICommandInterceptor.cs" />
+    <Compile Include="Interceptor\IModelSaveInterceptor.cs" />
+    <Compile Include="PageContainer.cs" />
+    <Compile Include="PageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageControl.Designer.cs">
+      <DependentUpon>PageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageEditControl.Designer.cs">
+      <DependentUpon>PageEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PagePanel.Designer.cs">
+      <DependentUpon>PagePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentManager.cs" />
+    <Compile Include="EventHandler\ZoomSelectedIconInBlockHandler.cs" />
+    <Compile Include="IComponet.cs" />
+    <Compile Include="PropertyControl\LogicTableChecker.cs" />
+    <Compile Include="PropertyControl\PolygonPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\PolygonPropertyControl.Designer.cs">
+      <DependentUpon>PolygonPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\RangePropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\RangePropertyForm.Designer.cs">
+      <DependentUpon>RangePropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\RangeLogicTablePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\RangeLogicTablePropertyControl.Designer.cs">
+      <DependentUpon>RangeLogicTablePropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResolutionRatioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResolutionRatioForm.Designer.cs">
+      <DependentUpon>ResolutionRatioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stratege\AlignBottomStrategy.cs" />
+    <Compile Include="Stratege\AlignCenterStrategy.cs" />
+    <Compile Include="Stratege\AlignHelper.cs" />
+    <Compile Include="Stratege\AlignLeftStrategy.cs" />
+    <Compile Include="Stratege\AlignMiddleStrategy.cs" />
+    <Compile Include="Stratege\AlignRightStrategy.cs" />
+    <Compile Include="Stratege\AlignTopStrategy.cs" />
+    <Compile Include="Stratege\IAlignStrategy.cs" />
+    <Compile Include="Stratege\IIntersectStrategy.cs" />
+    <Compile Include="Tool\AlignButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tool\AlignButton.Designer.cs">
+      <DependentUpon>AlignButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\IconTool.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tool\IconTool.Designer.cs">
+      <DependentUpon>IconTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Icon\Block.cs" />
+    <Compile Include="Icon\EnumType.cs" />
+    <Compile Include="Icon\IconCircle.cs" />
+    <Compile Include="Icon\IconFactory.cs" />
+    <Compile Include="Icon\IconLine.cs" />
+    <Compile Include="Icon\IconPolygon.cs" />
+    <Compile Include="Icon\IconRectangle.cs" />
+    <Compile Include="Icon\IconText.cs" />
+    <Compile Include="Icon\IDraw.cs" />
+    <Compile Include="Icon\IIcon.cs" />
+    <Compile Include="Icon\IRange.cs" />
+    <Compile Include="Icon\LogicTable.cs" />
+    <Compile Include="Icon\Movement.cs" />
+    <Compile Include="Icon\Rotate.cs" />
+    <Compile Include="Icon\SelectedBlockRect.cs" />
+    <Compile Include="Icon\SelectedDraw.cs" />
+    <Compile Include="Icon\SelectedItem.cs" />
+    <Compile Include="Icon\SelectedRange.cs" />
+    <Compile Include="Icon\Page.cs" />
+    <Compile Include="Icon\Zoom.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ColorLib.cs" />
+    <Compile Include="Model\MenuLib.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BaseDrawPanel.resx">
+      <DependentUpon>BaseDrawPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockControl.resx">
+      <DependentUpon>BlockControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockEditControl.resx">
+      <DependentUpon>BlockEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockPanel.resx">
+      <DependentUpon>BlockPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockPreviewControl.resx">
+      <DependentUpon>BlockPreviewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookEditControl.resx">
+      <DependentUpon>BookEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookPanel.resx">
+      <DependentUpon>BookPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputControl\AddBlockForm.resx">
+      <DependentUpon>AddBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputControl\AddPageForm.resx">
+      <DependentUpon>AddPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageControl.resx">
+      <DependentUpon>PageControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageEditControl.resx">
+      <DependentUpon>PageEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagePanel.resx">
+      <DependentUpon>PagePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\BlockRectPropertyControl.resx">
+      <DependentUpon>BlockRectPropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\BlockRectPropertyForm.resx">
+      <DependentUpon>BlockRectPropertyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\CirclePropertyControl.resx">
+      <DependentUpon>CirclePropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\GeneralPropertyControl.resx">
+      <DependentUpon>GeneralPropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\IconPropertyForm.resx">
+      <DependentUpon>IconPropertyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\LinePropertyControl.resx">
+      <DependentUpon>LinePropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\LogicTablePropertyControl.resx">
+      <DependentUpon>LogicTablePropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\PolygonPropertyControl.resx">
+      <DependentUpon>PolygonPropertyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\RangePropertyForm.resx">
+      <DependentUpon>RangePropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\RectanglePropertyControl.resx">
+      <DependentUpon>RectanglePropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\TextPropertyControl.resx">
+      <DependentUpon>TextPropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl\RangeLogicTablePropertyControl.resx">
+      <DependentUpon>RangeLogicTablePropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResolutionRatioForm.resx">
+      <DependentUpon>ResolutionRatioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TopoEdit.pfx" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PropertyControl\BlockRectPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\BlockRectPropertyControl.Designer.cs">
+      <DependentUpon>BlockRectPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\BlockRectPropertyControlTextInterceptor.cs" />
+    <Compile Include="PropertyControl\BlockRectPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\BlockRectPropertyForm.Designer.cs">
+      <DependentUpon>BlockRectPropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\CirclePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\CirclePropertyControl.Designer.cs">
+      <DependentUpon>CirclePropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\GeneralPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\GeneralPropertyControl.Designer.cs">
+      <DependentUpon>GeneralPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\IconPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\IconPropertyForm.Designer.cs">
+      <DependentUpon>IconPropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\IIconPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\IIconPropertyControl.Designer.cs">
+      <DependentUpon>IIconPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\IPropertyControlInterceptor.cs" />
+    <Compile Include="PropertyControl\LinePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\LinePropertyControl.Designer.cs">
+      <DependentUpon>LinePropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\LogicTablePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\LogicTablePropertyControl.Designer.cs">
+      <DependentUpon>LogicTablePropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\RectanglePropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\RectanglePropertyControl.Designer.cs">
+      <DependentUpon>RectanglePropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\TextPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl\TextPropertyControl.Designer.cs">
+      <DependentUpon>TextPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="Visitor\CommandAfterExecVisitor.cs" />
+    <Compile Include="Visitor\CommandAfterUnExecVisitor.cs" />
+    <Compile Include="Visitor\CommandBeforeExecVisitor.cs" />
+    <Compile Include="Visitor\CommandBeforeUnExecVisitor.cs" />
+    <Compile Include="Visitor\GenIconNameIndexVisitor.cs" />
+    <Compile Include="Visitor\ICommandVisitor.cs" />
+    <Compile Include="Visitor\IntersectIconVisitor.cs" />
+    <Compile Include="Visitor\IntersectLineVisitor.cs" />
+    <Compile Include="Visitor\IntersectVisitor.cs" />
+    <Compile Include="Visitor\IDrawVisitor.cs" />
+    <Compile Include="Visitor\SetNewNameAfterCopyVisitor.cs" />
+    <Compile Include="Visitor\ZoomAndMoveSelBlockRectInPageByAnchorVisitor.cs" />
+    <Compile Include="Visitor\ZoomAndMoveSelIconInBlockByAnchorVisitor.cs" />
+    <Compile Include="Visitor\ZoomSelPageInBookByAnchorVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\messageboxalert.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\messageboxerror.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\messageboxinfo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) -->
+<!-- 被2012 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.0.0.0">
+	<xs:annotation>
+		<xs:documentation>CUIT图形界面数据文件格式规范</xs:documentation>
+	</xs:annotation>
+	<xs:annotation id="CRC">
+		<xs:documentation/>
+	</xs:annotation>
+	<xs:element name="CuiGraphic">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Control"/>
+				<xs:element ref="GeneralInfo"/>
+				<xs:element ref="Rtus"/>
+				<xs:element ref="Menus" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+    <xs:key name="ColorKey">
+      <xs:selector xpath="GeneralInfo/ColorLib/Color"/>
+      <xs:field xpath="@Index"/>
+    </xs:key>
+    <xs:key name="FontKey">
+      <xs:selector xpath="GeneralInfo/FontLib/Font"/>
+      <xs:field xpath="@Index"/>
+    </xs:key>
+    <xs:key name="ImageKey">
+      <xs:selector xpath="GeneralInfo/ImageLib/Image"/>
+      <xs:field xpath="@Index"/>
+    </xs:key>
+		<xs:keyref name="SimpleLTColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Rtus/Rtu/Icons/Icon/LogicTable/SimpleLogicTable/ColorIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="ComplexLTColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Rtus/Rtu/Icons/Icon/LogicTable/ComplexLogicTable/LogicExpression/ColorIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="LogicExColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Rtus/Rtu/Icons/Icon/LogicTable/ComplexLogicTable/LogicExpression/ColorIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="TextFontIndexKeyRef" refer="FontKey">
+			<xs:selector xpath="Rtus/Rtu/Icons/Icon/Text/FontIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="MenuDefaultColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Menus/DefaultColorIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="MenuDefaultBackColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Menus/DefaultBackColorIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="MenuDefaultFontIndexKeyRef" refer="FontKey">
+			<xs:selector xpath="Menus/DefaultFontIndex"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="MenuItemColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Menus/Menu/MenuItem"/>
+			<xs:field xpath="ColorIndex"/>
+		</xs:keyref>
+		<xs:keyref name="MenuItemBackColorIndexKeyRef" refer="ColorKey">
+			<xs:selector xpath="Menus/Menu/MenuItem"/>
+			<xs:field xpath="BackColorIndex"/>
+		</xs:keyref>
+		<xs:keyref name="MenuItemFontIndexKeyRef" refer="FontKey">
+			<xs:selector xpath="Menus/Menu/MenuItem"/>
+			<xs:field xpath="FontIndex"/>
+		</xs:keyref>
+		<xs:keyref name="MenuItemImageIndexKeyRef" refer="ImageKey">
+			<xs:selector xpath="Menus/Menu/MenuItem"/>
+			<xs:field xpath="ImageIndex"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="Control">
+		<xs:annotation/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Version" type="xs:string"/>
+				<xs:element name="Author" type="xs:string"/>
+				<xs:element name="CRC" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GeneralInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ColorLib"/>
+				<xs:element ref="FontLib"/>
+				<xs:element ref="ImageLib" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ColorLib">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Color" minOccurs="2" maxOccurs="unbounded"/>
+				<xs:element name="DefaultColor" type="xs:int"/>
+				<xs:element name="BackgroundColor" type="xs:int"/>
+				<xs:element name="FocusColor" type="xs:int"/>
+				<xs:element name="FlashingInterval" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:keyref name="DefaultColorKeyRef" refer="ColorKey">
+			<xs:selector xpath="DefaultColor"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="BackgroundColorKeyRef" refer="ColorKey">
+			<xs:selector xpath="BackgroundColor"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+		<xs:keyref name="FocusColorKeyRef" refer="ColorKey">
+			<xs:selector xpath="FocusColor"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="Color">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="ColorValueInHost">
+					<xs:simpleType>
+						<xs:restriction base="xs:hexBinary">
+							<xs:length value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Flash" type="xs:boolean"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FontLib">
+		<xs:annotation>
+			<xs:documentation>字体库</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Font" maxOccurs="unbounded"/>
+				<xs:element name="DefaultFont" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:keyref name="FontKeyRef" refer="FontKey">
+			<xs:selector xpath="DefaultFont"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="Font">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Size" type="xs:float"/>
+				<xs:element name="Bold" type="xs:boolean"/>
+				<xs:element name="Italic" type="xs:boolean"/>
+				<xs:element name="Underlined" type="xs:boolean"/>
+				<xs:element name="StrokedOut" type="xs:boolean"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ImageLib">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Image" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="DefaultImage" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:keyref name="DefaultImageKeyRef" refer="ImageKey">
+			<xs:selector xpath="DefaultImage"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="Image">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Url" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Rtus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Rtu" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="RtuKey">
+			<xs:selector xpath="Rtu"/>
+			<xs:field xpath="@Index"/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="Rtu">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Icons"/>
+				<xs:element ref="Buttons" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Icons">
+		<xs:annotation/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Icon" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="IconKey">
+			<xs:selector xpath="Icon"/>
+			<xs:field xpath="@Index"/>
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="CoordinateF">
+		<xs:sequence>
+			<xs:element name="X">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Y">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Coordinate">
+		<xs:sequence>
+			<xs:element name="X" type="xs:unsignedInt"/>
+			<xs:element name="Y" type="xs:unsignedInt"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Icon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Level" type="xs:int"/>
+				<xs:element name="Type" type="xs:int"/>
+        <xs:element name="ColorIndex" type="xs:int">
+          <xs:keyref name="IconDefaultColorRef" refer="ColorKey">
+            <xs:selector xpath="."/>
+            <xs:field xpath="."/>
+          </xs:keyref>
+        </xs:element>
+				<xs:element name="LogicTable" minOccurs="0">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="SimpleLogicTable">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="BitName" type="xs:int" maxOccurs="unbounded"/>
+										<xs:element name="ColorIndex" type="xs:int" minOccurs="2" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ComplexLogicTable">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="LogicExpression" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice>
+					<xs:element ref="Circle"/>
+					<xs:element ref="Line"/>
+					<xs:element ref="Rect"/>
+					<xs:element ref="Polygon"/>
+					<xs:element ref="Text"/>
+				</xs:choice>
+				<xs:choice>
+					<xs:element ref="DeviceIndex"/>
+          <xs:element name="ButtonIndex" type="xs:int">
+            <xs:keyref name="ButtonIndexKeyRef" refer="ButtonKey">
+              <xs:selector xpath="."/>
+              <xs:field xpath="."/>
+            </xs:keyref>
+          </xs:element>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeviceIndex">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Type" type="xs:byte"/>
+				<xs:element name="Index" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Circle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Pos" type="Coordinate"/>
+				<xs:element name="Diameter" type="xs:byte"/>
+				<xs:element name="Weight" type="xs:byte"/>
+				<xs:element name="Fill" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Line">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BeginPos" type="Coordinate"/>
+				<xs:element name="EndPos" type="Coordinate"/>
+				<xs:element name="Weight" type="xs:byte"/>
+				<xs:element name="DashStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:enumeration value="0"/>
+							<xs:enumeration value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Rect">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Pos" type="CoordinateF"/>
+				<xs:element name="Width" type="xs:unsignedShort"/>
+				<xs:element name="Height" type="xs:unsignedShort"/>
+				<xs:element name="Weight" type="xs:byte"/>
+				<xs:element name="Fill" type="xs:boolean"/>
+				<xs:element name="Angle">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="359"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="HAlignType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Left"/>
+			<xs:enumeration value="Right"/>
+			<xs:enumeration value="Center"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VAlignType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Top"/>
+			<xs:enumeration value="Buttom"/>
+			<xs:enumeration value="Center"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Text">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Pos" type="Coordinate"/>
+				<xs:element name="Width" type="xs:unsignedShort"/>
+				<xs:element name="Height" type="xs:byte"/>
+				<xs:element name="Value" type="xs:string"/>
+				<xs:element name="Enable" type="xs:boolean"/>
+				<xs:element name="Alignment">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="HAlign" type="HAlignType"/>
+							<xs:element name="VAlign" type="VAlignType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="FontIndex" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="StraightLine">
+		<xs:sequence>
+			<xs:element name="BeginPoint" type="CoordinateF"/>
+			<xs:element name="EndPoint" type="CoordinateF"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arc">
+		<xs:sequence>
+			<xs:element name="Pos" type="Coordinate"/>
+			<xs:element name="Width" type="xs:int"/>
+			<xs:element name="Height" type="xs:int"/>
+			<xs:element name="StartAngle" type="xs:float"/>
+			<xs:element name="SweepAngle" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Bezier">
+		<xs:sequence>
+			<xs:element name="Point1" type="CoordinateF"/>
+			<xs:element name="Point2" type="CoordinateF"/>
+			<xs:element name="Point3" type="CoordinateF"/>
+			<xs:element name="Point4" type="CoordinateF"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Path">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="StraightLine" type="StraightLine"/>
+				<xs:element name="Bezier" type="Bezier"/>
+				<xs:element name="Arc" type="Arc"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Polygon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Paths">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Path" minOccurs="3" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Weight" type="xs:byte"/>
+				<xs:element name="Fill" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LogicExpression">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Expression" type="xs:string"/>
+				<xs:element name="ColorIndex" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Menus">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DefaultAlignment" type="HAlignType"/>
+				<xs:element name="DefaultColorIndex" type="xs:int"/>
+				<xs:element name="DefaultFontIndex" type="xs:int"/>
+				<xs:element name="DefaultBackColorIndex" type="xs:int"/>
+				<xs:element ref="Menu" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="MenuKey">
+			<xs:selector xpath="Menu"/>
+			<xs:field xpath="@Index"/>
+		</xs:key>
+	</xs:element>
+	<xs:simpleType name="PopUpType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RightHit"/>
+			<xs:enumeration value="LeftHit"/>
+			<xs:enumeration value="CenterHit"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Menu">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PopUpMode" type="PopUpType"/>
+				<xs:element name="CheckLocationAndCtrlMode" type="xs:boolean" default="true">
+					<xs:annotation>
+						<xs:documentation>检查CUIT部署位置和控制模式，应满足以下条件，菜单才会显示：
+中心CUIT：中心控
+车站CUIT：车站控、降级站控</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PopUpDeviceType" type="xs:byte"/>
+				<xs:element ref="MenuItem" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MenuItem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Authority" type="xs:int" minOccurs="0"/>
+				<xs:element name="CheckLocationAndCtrlMode" minOccurs="0"/>
+				<xs:element name="DisplayCondition" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Expression" type="xs:string"/>
+							<xs:element name="SetFalseInvisible" type="xs:boolean" default="true"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice>
+					<xs:group ref="ClassPath" minOccurs="0"/>
+					<xs:element ref="MenuItem" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:choice>
+				<xs:element name="Alignment" type="HAlignType" minOccurs="0"/>
+				<xs:element name="ColorIndex" type="xs:int" minOccurs="0"/>
+				<xs:element name="BackColorIndex" type="xs:int" minOccurs="0"/>
+				<xs:element name="FontIndex" type="xs:int" minOccurs="0"/>
+				<xs:element name="ImageIndex" type="xs:int" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="Code">
+		<xs:sequence>
+			<xs:element name="CancelCode" type="xs:unsignedShort"/>
+			<xs:element name="ControlCode" type="xs:unsignedShort"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="ClassPath">
+		<xs:sequence>
+			<xs:element name="DllName" type="xs:string" nillable="false"/>
+			<xs:element name="ClassName" type="xs:string"/>
+			<xs:element name="NeedConfirm" type="xs:boolean"/>
+			<xs:group ref="Code" minOccurs="0"/>
+			<xs:element name="Tag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="Buttons">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Button" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ButtonStatusType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Button">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Type" type="xs:int"/>
+				<xs:element ref="DeviceIndex"/>
+				<xs:element name="Status" type="ButtonStatusType"/>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+    <xs:key name="ButtonKey">
+      <xs:selector xpath="Button"/>
+      <xs:field xpath="@Index"/>
+    </xs:key>
+	</xs:element>
+</xs:schema>

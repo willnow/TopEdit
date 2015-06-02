@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceBitTypeInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DeviceBitTypeInfo.xsd">
+	<DeviceBitTypes>
+		<DeviceBitType>
+			<DeviceType>信号机</DeviceType>
+			<DeviceSubType>无</DeviceSubType>
+			<BitType>
+				<Name>封锁</Name>
+				<Value>1</Value>
+				<Tip>信号机封锁</Tip>
+			</BitType>
+		</DeviceBitType>
+		<DeviceBitType>
+			<DeviceType>物理区段</DeviceType>
+			<DeviceSubType>无</DeviceSubType>
+			<BitType>
+				<Name>封锁</Name>
+				<Value>5</Value>
+				<Tip>物理区段封锁</Tip>
+			</BitType>
+			<BitType>
+				<Name>计轴预复位</Name>
+				<Value>6</Value>
+				<Tip>计轴预复位</Tip>
+			</BitType>
+		</DeviceBitType>
+	</DeviceBitTypes>
+</DeviceBitTypeInfo>

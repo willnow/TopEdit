@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="page.xsd">
+  <Name>万家丽广场</Name>
+  <Id>4</Id>
+  <BlockRect>
+    <Name>DestCodeBound New One</Name>
+    <BlockName>DestCodeBound</BlockName>
+    <Pos>
+      <X>423</X>
+      <Y>150</Y>
+    </Pos>
+    <Width>143</Width>
+    <Height>65</Height>
+    <BlockCenter>
+      <X>72</X>
+      <Y>32</Y>
+    </BlockCenter>
+  </BlockRect>
+</Page>

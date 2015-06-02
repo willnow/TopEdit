@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Tde">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="StationGroups">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="StationGroup" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StationGroup">
+		<xs:annotation/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element ref="Device" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BitValueInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Type" type="xs:int"/>
+				<xs:element name="Value" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="DeviceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="无"/>
+			<xs:enumeration value="虚拟"/>
+			<xs:enumeration value="联锁区"/>
+			<xs:enumeration value="车站"/>
+			<xs:enumeration value="站台"/>
+			<xs:enumeration value="信号机"/>
+			<xs:enumeration value="道岔"/>
+			<xs:enumeration value="物理区段"/>
+			<xs:enumeration value="股道"/>
+			<xs:enumeration value="区间逻辑区段"/>
+			<xs:enumeration value="车次窗"/>
+			<xs:enumeration value="表示灯"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DeviceInfo">
+		<xs:sequence>
+			<xs:element name="StationGroupNo" type="xs:int"/>
+			<xs:element name="DeviceType" type="DeviceType"/>
+			<xs:element name="DeviceHandle" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Device">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Guid" type="xs:string"/>
+				<xs:element name="DeviceType" type="DeviceType"/>
+				<xs:element name="DeviceSubType" type="xs:string"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="StationNo" type="xs:int"/>
+				<xs:element name="BitInfo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Indication">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="BitValueInfo" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Control">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="BitValueInfo" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="LinkIcons">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Icon" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice>
+					<xs:element ref="PhysicTrack"/>
+					<xs:element ref="Platform"/>
+					<xs:element ref="Station"/>
+					<xs:element ref="Window"/>
+					<xs:element ref="Alarm"/>
+					<xs:element ref="LinkDevice"/>
+					<xs:element ref="Head"/>
+					<xs:element ref="Null"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Index" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="DirType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Up"/>
+			<xs:enumeration value="Down"/>
+			<xs:enumeration value="Dual"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SwitchDirType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="左上"/>
+			<xs:enumeration value="左下"/>
+			<xs:enumeration value="右上"/>
+			<xs:enumeration value="右下"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="LinkDevice">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Dir" type="DirType"/>
+				<xs:choice>
+					<xs:element ref="DeviceWithWindow"/>
+					<xs:element ref="Signal"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeviceWithWindow">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Window" type="xs:string" maxOccurs="unbounded"/>
+				<xs:element name="PhysicTrack" type="xs:string"/>
+				<xs:choice>
+					<xs:element ref="LogicTrack"/>
+					<xs:element ref="Switch"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LogicTrack">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UpLinkDevice" type="xs:string"/>
+				<xs:element name="DownLinkDevice" type="xs:string"/>
+				<xs:element name="Length" type="xs:int"/>
+				<xs:element name="KmStart" type="xs:int"/>
+				<xs:choice>
+					<xs:element ref="LogicTrackInStation"/>
+					<xs:element ref="LogicTrackOutStation"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LogicTrackInStation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Platform" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LogicTrackOutStation">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Switch">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NormalLinkDevice" type="xs:string"/>
+				<xs:element name="ReverseLinkDevice" type="xs:string"/>
+				<xs:element name="MainLinkDevice" type="xs:string"/>
+				<xs:element name="SwitchDir" type="SwitchDirType"/>
+				<xs:element name="MainKM" type="xs:int"/>
+				<xs:element name="NormalKM" type="xs:int"/>
+				<xs:element name="ReverseKM" type="xs:int"/>
+				<xs:element name="CenterKM" type="xs:int"/>
+				<xs:element name="MainCbtcBlockId" type="xs:int"/>
+				<xs:element name="NormalCbtcBlockId" type="xs:int"/>
+				<xs:element name="ReverseCbtcBlockId" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Signal">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UpLinkDevice" type="xs:string"/>
+				<xs:element name="DownLinkDevice" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Window">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Alarm">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Platform">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PlatformId" type="xs:int"/>
+				<xs:element name="DestNo" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Station">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PhysicTrack">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Head">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Null">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

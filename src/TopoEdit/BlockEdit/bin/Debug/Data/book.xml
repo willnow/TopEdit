@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="book.xsd">
+  <Name>长沙磁浮线</Name>
+  <PageRect>
+    <Name>光达站 New One</Name>
+    <PageName>光达站</PageName>
+    <Pos>
+      <X>48</X>
+      <Y>135</Y>
+    </Pos>
+    <Width>948</Width>
+    <Height>116</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+</Book>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopoEdit", "BlockEdit\TopoEdit.csproj", "{12A1738E-7200-439F-B385-A9F2E71C91C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdeDevicePropertyEditor", "..\TdeDevicePropertyEditor\TdeDevicePropertyEditor\TdeDevicePropertyEditor.csproj", "{B513E52C-6025-4F2E-B7E4-DC379AFD6554}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12A1738E-7200-439F-B385-A9F2E71C91C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A1738E-7200-439F-B385-A9F2E71C91C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A1738E-7200-439F-B385-A9F2E71C91C0}.Release|Any CPU.ActiveCfg = Release|x86
+		{12A1738E-7200-439F-B385-A9F2E71C91C0}.Release|Any CPU.Build.0 = Release|x86
+		{B513E52C-6025-4F2E-B7E4-DC379AFD6554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B513E52C-6025-4F2E-B7E4-DC379AFD6554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B513E52C-6025-4F2E-B7E4-DC379AFD6554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B513E52C-6025-4F2E-B7E4-DC379AFD6554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

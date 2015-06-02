@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="book.xsd">
+  <Name>长沙磁浮线</Name>
+  <PageRect>
+    <Name>车辆段 New One</Name>
+    <PageName>车辆段</PageName>
+    <Pos>
+      <X>2587</X>
+      <Y>1063</Y>
+    </Pos>
+    <Width>1163</Width>
+    <Height>1027</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+  <PageRect>
+    <Name>磁浮榔梨站 New One</Name>
+    <PageName>磁浮榔梨站</PageName>
+    <Pos>
+      <X>1183</X>
+      <Y>1060</Y>
+    </Pos>
+    <Width>2053</Width>
+    <Height>1043</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+  <PageRect>
+    <Name>磁浮高铁站 New One</Name>
+    <PageName>磁浮高铁站</PageName>
+    <Pos>
+      <X>-23</X>
+      <Y>1063</Y>
+    </Pos>
+    <Width>1940</Width>
+    <Height>1040</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+  <PageRect>
+    <Name>磁浮机场站 New One</Name>
+    <PageName>磁浮机场站</PageName>
+    <Pos>
+      <X>3647</X>
+      <Y>1063</Y>
+    </Pos>
+    <Width>1397</Width>
+    <Height>1040</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+  <PageRect>
+    <Name>OCC控制中心 New One</Name>
+    <PageName>OCC控制中心</PageName>
+    <Pos>
+      <X>33</X>
+      <Y>17</Y>
+    </Pos>
+    <Width>4017</Width>
+    <Height>1023</Height>
+    <PageCenter>
+      <X>0</X>
+      <Y>0</Y>
+    </PageCenter>
+  </PageRect>
+</Book>

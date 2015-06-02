@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CUIT.GlobalService.ShareLib</name>
+    </assembly>
+    <members>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.NumberComboBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.NumberComboBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.NumberComboBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.GenerateReport.SetColumnStyleToDateTime(System.Int32)">
+            <summary>
+            设置指定的列的格式为时间格式
+            </summary>
+            <param name="columnId">列号，从1开始</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.GenerateReport.GenerateExcel">
+            <summary>
+            生成EXCEL
+            </summary>
+            <returns></returns>
+            <remarks>
+            2014-02-13 JXN 增加输出日期个数
+            </remarks>
+        </member>
+        <member name="P:CSR.CUIT.GlobalService.ShareLib.GenerateReport.ReportName">
+            <summary>
+            保存的文件路径名
+            </summary>
+        </member>
+        <member name="P:CSR.CUIT.GlobalService.ShareLib.GenerateReport.ReportTableHeader">
+            <summary>
+            报表表头
+            </summary>
+        </member>
+        <member name="P:CSR.CUIT.GlobalService.ShareLib.GenerateReport.ReportTable">
+            <summary>
+            报表内容
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.ShowMessageForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.ShowMessageForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.ShowMessageForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CSR.ShareLib.Rotate.dAngle">
+            <summary>
+            dAngle大于0 顺时针 dAngle小于0 逆时针，弧度制
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.AlarmButton.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.AlarmButton.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.AlarmButton.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.FlashButton.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.FlashButton.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.FlashButton.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:CSR.CUIT.GlobalService.ShareLib.DateTimeColumn">
+            <summary>
+            目前只用在派班计划中
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.FocusButton.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.FocusButton.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSR.CUIT.GlobalService.ShareLib.FocusButton.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.LoggedOff">
+            <summary>
+            未登录
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.SuperUser">
+            <summary>
+            超级管理员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.ChiefDispatcher">
+            <summary>
+            主调
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.Dispatcher">
+            <summary>
+            调度员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.Maintainer">
+            <summary>
+            维护员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.Trainee">
+            <summary>
+            培训学员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.TrainTeacher">
+            <summary>
+            培训教师
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.Signaler">
+            <summary>
+            车辆段值班员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.Terminaler">
+            <summary>
+            车辆段派班员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.LatsRtuUser">
+            <summary>
+            设备集中站值班员
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmRole.LatsNonRtu">
+            <summary>
+            非设备集中站值班员
+            </summary>
+        </member>
+        <member name="T:CSR.CUIT.GlobalService.ShareLib.EmZoomMode">
+            <summary>
+            缩放模式
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmZoomMode.None">
+            <summary>
+            无模式
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmZoomMode.ActualSize">
+            <summary>
+            实际大小
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmZoomMode.NonUniformScale">
+            <summary>
+            非等比缩放
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.EmZoomMode.UniformScale">
+            <summary>
+            等比缩放
+            </summary>
+        </member>
+        <member name="T:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant">
+            <summary>
+            数据结构相关常量
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.GlobalIdLength">
+            <summary>
+            车次号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.GroupIdLength">
+            <summary>
+            车组号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.DestIdLength">
+            <summary>
+            目的地号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.TableIdLength">
+            <summary>
+            表号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.DriverIdLength">
+            <summary>
+            乘务组号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.AcarCount">
+            <summary>
+            车头号两个
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.AcarLength">
+            <summary>
+            车头号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.RollingCount">
+            <summary>
+            车厢号6个
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.RollingLength">
+            <summary>
+            车厢号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.ZhengBeiDescriptionLength">
+            <summary>
+            整备字符串的长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.DeviceIdLength">
+            <summary>
+            设备号长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.UserNameLength">
+            <summary>
+            用户名长度
+            </summary>
+        </member>
+        <member name="F:CSR.CUIT.GlobalService.ShareLib.DataStructureConstant.UserPasswordLength">
+            <summary>
+            用户密码长度
+            </summary>
+        </member>
+    </members>
+</doc>

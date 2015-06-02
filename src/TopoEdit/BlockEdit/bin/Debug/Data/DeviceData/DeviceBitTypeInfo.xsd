@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="DeviceBitTypeInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DeviceBitTypes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="DeviceBitType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeviceBitType">
+		<xs:annotation/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DeviceType" type="DeviceType"/>
+				<xs:element name="DeviceSubType" type="xs:string"/>
+				<xs:element ref="BitType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BitType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Value" type="xs:int"/>
+				<xs:element name="Tip" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="DeviceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="无"/>
+			<xs:enumeration value="虚拟"/>
+			<xs:enumeration value="联锁区"/>
+			<xs:enumeration value="车站"/>
+			<xs:enumeration value="站台"/>
+			<xs:enumeration value="信号机"/>
+			<xs:enumeration value="道岔"/>
+			<xs:enumeration value="物理区段"/>
+			<xs:enumeration value="股道"/>
+			<xs:enumeration value="区间逻辑区段"/>
+			<xs:enumeration value="车次窗"/>
+			<xs:enumeration value="表示灯"/>
+			<xs:enumeration value="进路"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

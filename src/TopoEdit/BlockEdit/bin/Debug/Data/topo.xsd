@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by wangjy (nanche) -->
+<!-- 被2012 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.0.0.0">
+  <xs:annotation>
+    <xs:documentation>TOPO数据文件格式规范</xs:documentation>
+  </xs:annotation>
+  <xs:annotation id="CRC">
+    <xs:documentation/>
+  </xs:annotation>
+  <xs:element name="TopoGraphic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Topo" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Pos" type="CoordinateF"/>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="Id" type="xs:int"/>
+              <xs:element ref ="BlockRect" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlockRect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="BlockName" type="xs:string"/>
+        <xs:element name="Pos" type="CoordinateF"/>
+        <xs:element name="Width" type="xs:double"/>
+        <xs:element name="Height" type="xs:double"/>
+        <xs:element name="BlockCenter" type="CoordinateF"/>
+        <xs:element name="Text" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CoordinateF">
+    <xs:sequence>
+      <xs:element name="X" type="xs:double"/>
+      <xs:element name="Y" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

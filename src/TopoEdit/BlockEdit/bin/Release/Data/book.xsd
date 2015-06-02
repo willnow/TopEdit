@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by wangjy (nanche) -->
+<!-- 被2012 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.0.0.0">
+  <xs:element name="Book">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="PageRect" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="PageName" type="xs:string"/>
+              <xs:element name="Pos" type="CoordinateF"/>
+              <xs:element name="Width" type="xs:double"/>
+              <xs:element name="Height" type="xs:double"/>
+              <xs:element name="PageCenter" type="CoordinateF"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CoordinateF">
+    <xs:sequence>
+      <xs:element name="X" type="xs:float"/>
+      <xs:element name="Y" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

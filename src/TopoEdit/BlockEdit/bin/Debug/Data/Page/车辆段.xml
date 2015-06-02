@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="page.xsd">
+  <Name>车辆段</Name>
+  <Id>5</Id>
+  <BlockRect>
+    <Name>Switch_Right_Down_45 New One4</Name>
+    <BlockName>Switch_Right_Down_45</BlockName>
+    <Pos>
+      <X>164</X>
+      <Y>187</Y>
+    </Pos>
+    <Width>610</Width>
+    <Height>220</Height>
+    <BlockCenter>
+      <X>305</X>
+      <Y>110</Y>
+    </BlockCenter>
+  </BlockRect>
+</Page>
